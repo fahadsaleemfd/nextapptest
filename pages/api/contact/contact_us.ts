@@ -47,8 +47,9 @@ export default async function handler(req : NextApiRequest, res:NextApiResponse)
               console.log('Email sent: ' + info.response);
             }
       });
-  
-    res.end(JSON.stringify({ message : 'Email has been sent!' }))
+      res.statusCode = 200
+      res.setHeader('Content-Type', 'application/json')
+      res.end(JSON.stringify({ message : 'Email has been sent!' }))
     
  
    
